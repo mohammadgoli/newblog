@@ -1,0 +1,17 @@
+<!doctype HTML>
+<html>
+    <body dir="rtl">
+        <form method="POST" action="{{ url_for('editposts') }}">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.header.label }}<br>
+                {{ form.header }} <br /><br /><br />
+                متن<br /><br />
+                {{ form.body(cols=50, rows=10)}}
+            </p>
+            <p>
+                <input type="submit" value="login">
+            </p>
+        </form>
+    </body>
+</html>

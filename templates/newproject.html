@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html>
+    <body dir="rtl">
+        <form method="POST" action="{{ url_for('newproject') }}">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.subject.label }}<br>
+                {{ form.subject }} <br /><br /><br />
+                متن<br /><br />
+                {{ form.discription(cols=50, rows=10)}}<br />
+                تاریخ<br />
+                {{ form.duedate }}<br /><br />
+                تمام شده ؟<br />
+                {{ form.finished }}<br /><br />
+                آیا فایل قابل دانلود دارد ؟ <br />
+                {{ form.download_file }}
+            </p>
+            <p>
+                <input type="submit" value="بزن بریم">
+            </p>
+        </form>
+    </body>
+</html>

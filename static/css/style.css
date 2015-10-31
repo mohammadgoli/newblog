@@ -1,0 +1,469 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, body { height: 100%; width: 100%;padding: 0; margin: 0; }
+
+.container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 100%
+}
+
+iframe {
+  width: 100%;
+  height: 18em;
+  border: 0;
+}
+
+p {
+  font-family: '0 Yekan', tahoma, Arial;
+  font-size: 1em;
+}
+
+.rightcolumn {
+	width: 70%;
+	height: 100%;
+	background-color: gray;
+	overflow: auto;
+}
+
+#bigmenu {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+#smallmenu {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	overflow: auto;
+}
+
+.headercontent {
+	background: pink;
+	border: 1px white solid;
+	margin: 1em;
+	padding: 2em;
+	text-align: center;
+}
+h1 {
+
+}
+
+.subheader {
+	padding-top: .5em;
+	font-size: .9em;
+	font-style: italic;
+}
+
+/*this is the config for the right side and the navigation panel*/
+
+/*the part for big screens*/
+.leftcolumn {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	height: 100%;
+	background-color: beige;
+}
+
+
+.tophalf {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 50%;
+	width: 100%;
+}
+
+.profpic {
+	display: flex;
+	flex-direction: column;
+	margin-top: 6em;
+	align-items: center;
+	height: 34%;
+	width: 100%;
+}
+
+#title {
+	margin-top: 1em;
+	font-size: 2em;
+}
+
+
+.bottomhalf {
+	display: flex;
+	flex-direction: column;
+	height: 50%;
+	width: 100%;
+	float: right;
+	margin-top: 1em;
+}
+
+.itemcol {
+	float: right;
+	display: block;
+	width: 100%;
+	clear: right;
+	list-style: none;
+	padding-bottom: .7em;
+	padding-top: 0.7em;	
+	margin-bottom: 0.2em;	
+	background: rgba(0, 0, 0, .5);
+	text-align: right;
+	border-right: 4px solid pink;
+}
+
+
+.nav:link, .nav:visited, .nav:active {
+	text-decoration: none;
+	color: black;
+}
+
+.itemcol:hover {
+	text-decoration: none;
+	background: white;
+}
+
+.itemcol p {
+	padding-right: .5em;
+}
+
+
+/*the part for small screens*/
+.itemcols {
+	height: 38%;
+}
+
+#rightcolsmall {
+	height: 24%;
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+.items {
+	height: 50%;
+	display: flex;
+  flex-direction: column;
+	align-items:center;
+	justify-content:center;
+	background-color: beige;
+}
+
+.deg3 {
+	transform:rotate(-90deg);
+}
+
+.favicon {
+  padding-bottom: .5em;
+}
+
+@media all and (max-width: 760px) {
+    #smallmenu { display: flex; }
+    #bigmenu { display: none; }
+    header { display: none; }
+    .leftcolumn { width: 5%; }
+    .rightcolumn { width: 95%; }
+}
+
+@media all and (min-width: 761px) {
+    #smallmenu { display: none; }
+    #bigmenu { display: flex; }
+    header { display: flex;}
+}
+
+.mainimg {
+	display: block;
+	height: 100px;
+	width: 100px;
+	padding:0;
+	overflow: hidden;
+	border: 0px transparent solid;
+	/*border-radius: 75px;*/
+	background-color: white;
+
+	 /*these are for the image inside the border to be at center*/
+	
+	/*these are for the hole mother fucker border to be in the middle of the page*/
+
+	transform:rotate(45deg);
+}
+
+.mainimg2 {
+	display: block;
+	height: 70px;
+	width: 70px;
+	padding:0;
+	margin-right: 100%;
+	overflow: hidden;
+	border: 0px transparent solid;
+	/*border-radius: 75px;*/
+	background-color: white;
+
+	 /*these are for the image inside the border to be at center*/
+	
+	/*these are for the hole mother fucker border to be in the middle of the page*/
+
+	transform:rotate(45deg);
+}
+
+.mainpic {
+	transform:rotate(-45deg);
+}
+
+/*end of the configuration for navigation panel*/
+
+/*timeline wrapper */
+.timelinewraper {
+	width: 95%;
+	margin-left: .7em;
+	padding-left: 0;
+	border-left: 3px solid white;
+	padding-bottom: .7em;
+}
+
+.timecircle {
+	width: 5px;
+	height: 5px;
+	border: 5px solid pink;
+	display: block;
+	position: relative;
+	left: -9px;
+	top: 24.5px;
+	background: white;
+  transform: rotate(45deg);
+}
+
+/*blog post configuration*/
+.blogpost {
+	background: pink;
+	border: .5px solid white;
+	margin-left: 1.2em;
+	padding: .5em;
+	font-family: Georgia, Helvetica, Arial, serif;
+	font-size: 18px;
+	line-height: 1.45;
+  color: #383838;
+}
+
+.timelinewraper:before {
+	content: "";
+    display: block;
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid pink; 
+    position: relative;
+    top: 40px;
+    left: 14px;
+}
+
+video {
+	width: 100%;
+}
+/*begining of the animation for the main image*/
+
+/*big size */
+.l1, .l2, .l3, .l4 {
+  position: absolute;
+  background: transparent;
+  width: 0px;
+  height: 0px;
+  -webkit-animation-duration: .4s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.l1 {
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 2px;
+  -webkit-animation-name: l1;
+  -webkit-animation-delay: 0s;
+}
+
+.l2 {
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  -webkit-animation-name: l2;
+  -webkit-animation-delay: .4s;
+}
+
+.l3 {
+  right: 0;
+  top: 0;
+  height: 100px;
+  width: 2px;
+  -webkit-animation-name: l3;
+  -webkit-animation-delay: .8s;
+}
+
+.l4 {
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 2px;
+  -webkit-animation-name: l4;
+  -webkit-animation-delay: 1.2s;
+}
+
+@-webkit-keyframes l1 {
+  0% {
+    height: 0;
+    background: #000;
+  }
+  100% {
+    height: 100px;
+    background: #000;
+  }
+}
+@-webkit-keyframes l2 {
+  0% {
+    width: 0px;
+    background: #000;
+  }
+  100% {
+    width: 100px;
+    background: #000;
+  }
+}
+@-webkit-keyframes l3 {
+  0% {
+    height: 0;
+    background: #000;
+  }
+  100% {
+    height: 100px;
+    background: #000;
+  }
+}
+@-webkit-keyframes l4 {
+  0% {
+    width: 0;
+    background: #000;
+  }
+  100% {
+    width: 100px;
+    background: #000;
+  }
+}
+
+/*small size*/
+.l12, .l22, .l32, .l42 {
+  position: absolute;
+  background: transparent;
+  width: 0px;
+  height: 0px;
+  -webkit-animation-duration: .4s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.l12 {
+  left: 0;
+  bottom: 0;
+  height: 70px;
+  width: 1px;
+  -webkit-animation-name: l12;
+  -webkit-animation-delay: 0s;
+}
+
+.l22 {
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 1px;
+  -webkit-animation-name: l22;
+  -webkit-animation-delay: .4s;
+}
+
+.l32 {
+  right: 0;
+  top: 0;
+  height: 70px;
+  width: 1px;
+  -webkit-animation-name: l32;
+  -webkit-animation-delay: .8s;
+}
+
+.l42 {
+  bottom: 0;
+  right: 0;
+  width: 70px;
+  height: 1px;
+  -webkit-animation-name: l42;
+  -webkit-animation-delay: 1.2s;
+}
+
+@-webkit-keyframes l12 {
+  0% {
+    height: 0;
+    background: #000;
+  }
+  100% {
+    height: 70px;
+    background: #000;
+  }
+}
+@-webkit-keyframes l22 {
+  0% {
+    width: 0px;
+    background: #000;
+  }
+  100% {
+    width: 70px;
+    background: #000;
+  }
+}
+@-webkit-keyframes l32 {
+  0% {
+    height: 0;
+    background: #000;
+  }
+  100% {
+    height: 70px;
+    background: #000;
+  }
+}
+@-webkit-keyframes l42 {
+  0% {
+    width: 0;
+    background: #000;
+  }
+  100% {
+    width: 70px;
+    background: #000;
+  }
+}
+@-webkit-keyframes l42 {
+  0% {
+    width: 0;
+    background: #000;
+  }
+  100% {
+    width: 70px;
+    background: #000;
+  }
+}
+
+/*end of the animation for main image */

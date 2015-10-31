@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
+  <title></title>
+  <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-1.11.3.min.js') }}"></script>
+  <style type="text/css">
+    @font-face { 
+      font-family: "sample";
+      src: url("{{ url_for('static', filename='fonts/sample.ttf') }}") format("truetype");
+    }
+    @font-face {
+    font-family: "subtitle";
+    src:url("{{ url_for('static', filename='fonts/first5.ttf') }}") format("truetype");
+    }
+  </style>
+</head>
+<body>
+  <section class='container'>
+    <header></header>
+    <nav>
+      <ul>
+        <li>test</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
+      </ul>
+    </nav>
+    <article>
+      <!-- first page (profile picture and name) -->
+      <div class="firstpage">
+        <div id="mainimg">
+          <span class="l1"></span>
+          <span class="l2"></span>
+            <span class="l3"></span>
+            <span class="l4"></span>
+          <img src="selfieP.jpeg" width="200px" height="200px" id="mainpic">
+        </div>
+        <div class="subtitle">
+          <p class="test" dir="rtl">مـحــمــد<strong>گـلــــی</strong></p>
+        </div>
+      </div>
+      <!-- second page  -->
+      <div class="secondpage" id="one">
+        <section id='aboutpage'>
+          <article class="about">
+            <blockquote dir="rtl">
+              مصداق بارز هر کس را به همه کار..<br /> 
+              ایده های زیادی در راه است ...
+              <br /> لطفا شکیبا باشید!
+            </blockquote>
+          </article>
+        </section>
+      </div>
+
+      <!-- third page  -->
+      <div id="fourthpage">
+         <article class='socialicons'>
+            <ul class='circle-container'>
+              <li><a href="http://google.com"><img src='{{url_for("static",filename="img/64/1.png")}}'></a></li>
+              <li><img src='{{url_for("static",filename="img/64/2.png")}}'></li>
+              <li><img src='{{url_for("static",filename="img/64/3.png")}}'></li>
+              <li><img src='{{url_for("static",filename="img/64/4.png")}}'></li>
+              <li><img src='{{url_for("static",filename="img/64/5.png")}}'></li>
+              <li><img src='{{url_for("static",filename="img/64/6.png")}}'></li>
+              <li><img src='{{url_for("static",filename="img/64/7.png")}}'></li>
+              <li><img src='{{url_for("static",filename="img/64/8.png")}}'></li>
+              <li><img src='{{url_for("static",filename="img/64/9.png")}}'></li>
+            </ul>
+          </article>
+      </div>
+
+    <!-- fourth page -->
+      <div class="thirdpage">
+        <section id='contact'>
+          <article class='contact'>
+            <form dir="rtl" method="POST" action="{{ url_for('about') }}">
+              Name:<br />
+              {{ form.name }}
+              <br>
+              Email:<br />
+              {{ form.email }}
+              <br />
+              Comment:<br />
+              {{ form.message }}
+              <br />
+              <input type="submit" value="submit">
+            </form>
+            
+          </article>
+        </section>
+      </div>
+
+    </article>
+  </section>
+<script type="text/javascript" src="{{ url_for('static', filename='js/vlog.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!doctype HTML>
+<html>
+    <body dir="rtl">
+        <form method="POST" action="{{ url_for('editways') }}">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.way.label }}<br>
+                {{ form.way }} <br /><br /><br />
+            </p>
+            <p>
+                <input type="submit" value="login">
+            </p>
+        </form>
+        <a href="{{ url_for('deleteways') }}">delete all</a>
+    </body>
+</html>

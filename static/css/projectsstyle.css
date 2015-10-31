@@ -1,0 +1,292 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body, section, article {
+	width: 100%;
+	height: 100%;
+}
+
+p:lang(fa){
+	font-family: 'sample', tahoma, Arial;
+	font-size: 1em;
+}
+
+#firstpage {
+	height: 100vh;
+	width: 100%;
+	background: #3C3E40;
+	display: flex;
+	flex-direction: column;
+}
+
+#discription {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  background-color: #e1e8f0;
+}
+
+#secondpage {
+	height: 100vh;
+	width: 100%;
+	background: #9068be;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#thirdpage {
+  height: 100vh;
+  width: 100%;
+  background-color: #3c948b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form {
+  width: 70%;
+  height: 70%;
+}
+
+#discription2 {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input{
+  width: 30%;
+  padding-top: 0.5em;
+  padding-bottom: 0.2em;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+}
+
+input:focus, textarea#more:focus {
+  outline: 0;
+  background: white;
+}
+
+input[type="submit"] {
+  margin-top: 4em;
+  margin-right: 30%;
+  background: white;
+  padding: .5em;
+}
+
+textarea#more {
+  width: 70%;
+  height: 9em;
+  border: none;
+  border-radius: 0px;
+  background: transparent;
+  border-right: 2px solid black;
+  padding-right: 1em;
+}
+
+select#ways {
+  border: 0;
+  padding: .38em;
+  background: white;
+}
+
+table {
+  width: 100%;
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table tr:nth-child(odd) {
+   background-color:#fff;
+}
+
+td {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.downlink{
+  float: left;
+  padding-left: 1em;
+}
+
+.date {
+  text-align: center;
+}
+
+#finishedsection {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+#finished_pro {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#finished_header {
+  width: 100%;
+  height: 20%;
+}
+
+#text {
+	height: 50%;
+}
+
+#wrapper {
+	height: 50%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#counter {
+	width: 80%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.part {
+	width: 25%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.number {
+	height: 8em;
+	width: 8em;
+	background: #e1e8f0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transform: rotate(45deg);
+
+}
+#day, #hours, #mins, #secs {
+	transform: rotate(-45deg);
+	font-family:'sample', tahoma, Arial;
+	font-size: 2.5em;
+	letter-spacing: .1em;
+	opacity: 50%;
+}
+
+.l1, .l2, .l3, .l4 {
+  position: absolute;
+  background: transparent;
+  width: 0px;
+  height: 0px;
+  -webkit-animation-duration: .4s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.l1 {
+  left: 0;
+  bottom: 0;
+  height: 8em;
+  width: 2px;
+  -webkit-animation-name: l1;
+  -webkit-animation-delay: 0s;
+}
+
+.l2 {
+  top: 0;
+  left: 0;
+  width: 8em;
+  height: 2px;
+  -webkit-animation-name: l2;
+  -webkit-animation-delay: .4s;
+}
+
+.l3 {
+  right: 0;
+  top: 0;
+  height: 8em;
+  width: 2px;
+  -webkit-animation-name: l3;
+  -webkit-animation-delay: .8s;
+}
+
+.l4 {
+  bottom: 0;
+  right: 0;
+  width: 8em;
+  height: 2px;
+  -webkit-animation-name: l4;
+  -webkit-animation-delay: 1.2s;
+}
+
+@-webkit-keyframes l1 {
+  0% {
+    height: 0;
+    background: #000;
+  }
+  100% {
+    height: 8em;
+    background: #000;
+  }
+}
+@-webkit-keyframes l2 {
+  0% {
+    width: 0;
+    background: #000;
+  }
+  100% {
+    width: 8em;
+    background: #000;
+  }
+}
+@-webkit-keyframes l3 {
+  0% {
+    height: 0;
+    background: #000;
+  }
+  100% {
+    height: 8em;
+    background: #000;
+  }
+}
+@-webkit-keyframes l4 {
+  0% {
+    width: 0;
+    background: #000;
+  }
+  100% {
+    width: 8em;
+    background: #000;
+  }
+}
+@-webkit-keyframes l4 {
+  0% {
+    width: 0;
+    background: #000;
+  }
+  100% {
+    width: 8em;
+    background: #000;
+  }
+}

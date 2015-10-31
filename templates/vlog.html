@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8' />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vlog.css') }}" />
+</head>
+<body>
+	<section>
+		<div id='firstpage'>
+			<div id="discription" dir="rtl">
+				<img src="{{ url_for('static', filename='img/video2.png') }}" id="videoicon" />
+				<p>
+				 به قسمت ویدیو ها خوش آمدید <br />
+				 ویدیو بلاگ یا ولاگ همان بلاگ است به صورت تصویری <br />
+				</p>
+			</div>
+		</div>
+		<div id="secondpage">
+<!-- 			<iframe src="http://www.aparat.com/video/video/embed/videohash/oUnV2/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> -->
+			<div id="videocontainer">
+				<video controls>
+					<source src="test.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div>
+		<div id="thirdpage">
+			<div id="header">
+				<header>
+					<h1> ویدیو ها </h1>
+				</header>
+			</div>
+			<div id="allvideos" dir="rtl">
+				<a id="onevideo" href="http://google.com">
+					<div id="img"><img src="girl-06.jpg" id="thumbnail" /></div>
+					<div id="title" dir="rtl">
+						<h3>
+							این یک تست است 
+						</h3>
+						<p>
+							این یک ویدیو نمونه است برای شما تا بلکه مقبول واقع گردد
+						</p>
+					</div>
+				</a>
+				<a id="onevideo" href="http://google.com">
+					<div id="img"><img src="girl-06.jpg" id="thumbnail" /></div>
+					<div id="title" dir="rtl">
+						<h3>
+							این یک تست است 
+						</h3>
+						<p>
+							این یک ویدیو نمونه است برای شما تا بلکه مقبول واقع گردد
+						</p>
+					</div>
+				</a>
+				<a id="onevideo" href="http://google.com">
+					<div id="img"><img src="{{ url_for('static', filename='img/girl-06.jpg') }}" id="thumbnail" /></div>
+					<div id="title" dir="rtl">
+						<h3>
+							این یک تست است 
+						</h3>
+						<p>
+							این یک ویدیو نمونه است برای شما تا بلکه مقبول واقع گردد
+						</p>
+					</div>
+				</a>
+				<a id="onevideo" href="http://google.com">
+					<div id="img"><img src="girl-06.jpg" id="thumbnail" /></div>
+					<div id="title" dir="rtl">
+						<h3>
+							این یک تست است 
+						</h3>
+						<p>
+							این یک ویدیو نمونه است برای شما تا بلکه مقبول واقع گردد
+						</p>
+					</div>
+				</a>
+				<a id="onevideo" href="http://google.com">
+					<div id="img"><img src="girl-06.jpg" id="thumbnail" /></div>
+					<div id="title" dir="rtl">
+						<h3>
+							این یک تست است 
+						</h3>
+						<p>
+							این یک ویدیو نمونه است برای شما تا بلکه مقبول واقع گردد
+						</p>
+					</div>
+				</a>
+
+			</div>
+		</div>
+	</section>
+</body>
+</html>
