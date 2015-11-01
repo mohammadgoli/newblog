@@ -5,28 +5,35 @@
 		<meta charset="UTF-8" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mainstyle.css') }}" />
-		<link href='http://awebfont.ir/css?id=1941&mode=wlt' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<section id='container'>
 			<img src="{{ url_for('static', filename='img/profilePic.jpg') }}" width="100px" height="100px" id="mainpicture">
 			<div id="centerSquare">
-				<div class="qu">
-					<div id="bgimg">
-						<div class='text'>
-							<p>this is the shit</p>
-						</div>
+				<a class="qu" href="{{ url_for('about') }}">
+					<div class="qucontent">
+						<img src="{{ url_for('static', filename='img/about.png') }}" width="64px" height="64px" class="titleImg" />
+						<p class="title">معرفی</p>
 					</div>
-				</div>
-				<div class="qu">
-					<div id="bgimg"></div>
-				</div>
-				<div class="qu">
-					<img src="blog.png" width="64px" height="64px" class="titleImg" />
-					<p class="title">وبلاگ</p>
-				</div>
-				<div class="qu">
-				</div>
+				</a>
+				<a class="qu" href="{{ url_for('projects') }}">
+					<div class="qucontent">
+						<img src="{{ url_for('static', filename='img/proj.png') }}" width="64px" height="64px" class="titleImg" />
+						<p class="title">پروژه</p>
+					</div>
+				</a>
+				<a class="qu" href="{{ url_for('blog') }}">
+					<div class="qucontent">
+						<img src="{{ url_for('static', filename='img/blog.png') }}" width="64px" height="64px" class="titleImg" />
+						<p class="title">وبلاگ</p>
+					</div>
+				</a>
+				<a class="qu" href="{{ url_for('vlog') }}">
+					<div class="qucontent">
+						<img src="{{ url_for('static', filename='img/vlog.png') }}" width="64px" height="64px" class="titleImg" />
+						<p class="title">ویدیو</p>
+					</div>
+				</a>
 			</div>
 			<div id="mainimg">
 				<img src="{{ url_for('static', filename='img/profilePic.jpg') }}" width="100%" height="100%" id="mainpic">

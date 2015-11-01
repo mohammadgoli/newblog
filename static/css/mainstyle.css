@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+@font-face{
+  font-family: 'defont';
+  src: url('../fonts/font.ttf');
+}
 html, body { height: 100%; padding: 0; margin: 0; }
 
 body {
@@ -53,36 +57,36 @@ section {
   background: #6ed3cf;
 }
 
+.qu:link{
+  text-decoration: none;
+  color: black;
+}
+
+.qu:hover {
+  opacity: 0.8;
+  color: black;
+}
+
+.qu:visited{
+  text-decoration: none;
+  color: black;
+}
+
 .title {
 	text-align: center;
-	transform: rotate(-45deg);
-	margin-left: 3.2em;
+  font-family: defont;
 }
 
-.titleImg {
-	transform: rotate(-45deg);
-	margin-left: -.5em;
+.qucontent{
+  width: 100%;
+  height: 100%;
+  transform: rotate(-45deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
-
-#bgimg{
-	width: 100%; height: 100%; float: left;
-	text-align:center;
-	transform: rotate(-45deg);
-}
-
-#bgimg2{
-	width: 100%; height: 100%; float: left;
-	background-color: #0077aa;
-	text-align:center;
-	left:0;
-	top: 0;
-}
-
-
-.qu:hover, .qu:hover {
-	background: #3498db;
-}
-
 
 #mainimg {
 	height: 130px;
@@ -127,7 +131,7 @@ section {
 }
 
 .discription {
-  font-family: '0 Yekan', tahoma, Arial;
+  font-family: 'defont', tahoma, Arial;
   font-size: 1em;
 }
 
