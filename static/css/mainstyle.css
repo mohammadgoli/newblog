@@ -22,7 +22,6 @@ body {
 
 section {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
@@ -111,10 +110,12 @@ section {
 }
 
 @media all and (max-width: 760px) {
-  section {flex-wrap: nowrap; flex-direction: column; height: 160%}
-  .qu{ width: 100%; height: 40vh;}
+  section {flex-wrap: nowrap; flex-direction: column;}
+  .qu{ width: 100%; height: 30vh;}
   #mainimg {display: none;}
   .discription {display: none;}
+  #centerSquare { transform: rotate(0);}
+  .qucontent { transform: rotate(0);}
 }
 
 @media all and (min-width: 760px){
