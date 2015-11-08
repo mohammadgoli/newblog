@@ -6,8 +6,12 @@
             <p>
                 {{ form.header.label }}<br>
                 {{ form.header }} <br /><br /><br />
-                متن<br /><br />
-                {{ form.body(cols=50, rows=10)}}
+                {{ form.subject.label }}<br />
+                {{ form.subject}}<br />
+                {{ form.body.label}}<br />
+                {{ form.body(cols=50, rows=10)}}<br />
+                {{ form.digest.label }}<br />
+                {{ form.digest }}
             </p>
             <p>
                 <input type="submit" value="login">

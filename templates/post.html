@@ -14,7 +14,7 @@
                 {% if 'logged_in' in session %}
                     <a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
                 {% endif %}
-				<span class="cd-date">Jan 14</span>
+				<span class="cd-date">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
 {#<div class="timelinewraper">#}
@@ -40,7 +40,21 @@
 				<h2>Title of section 2</h2>
 				<p>{{ post.digest|safe }}</p>
 				<a href="#0" class="cd-read-more">Read more</a>
-				<span class="cd-date">Jan 18</span>
+				<span class="cd-date">{{ post.date }}</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+    {% endif %}
+    {% if 'imagetext' in post.subject %}
+        <div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="img/cd-icon-picture.svg" alt="picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Title of section 2</h2>
+				<p>{{ post.digest|safe }}</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
     {% endif %}

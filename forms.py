@@ -12,11 +12,13 @@ from datetime import date
 class LoginForm(Form):
     username = StringField("Username", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
-# recaptcha = RecaptchaField()
+    recaptcha = RecaptchaField()
 
 
 class BlogPostForm(Form):
+    subject = SelectField("subject", choices=[('text', 'text'), ('video', 'video'), ('imagetext', 'imagetext')])
     header = StringField("Header", validators=[DataRequired()])
+    digest = StringField("digest", validators=[DataRequired()])
     body = TextAreaField("Body", validators=[DataRequired()])
 
 
@@ -47,6 +49,7 @@ class ContactForm(Form):
     name = StringField(u"name", validators=[DataRequired()])
     email = StringField(u"email", validators=[DataRequired(), Email()])
     message = TextAreaField(u"message", validators=[DataRequired()])
+    recaptcha = RecaptchaField()
 
 
 class VideoForm(Form):
@@ -60,3 +63,4 @@ class CommentForm(Form):
     name = StringField(u"name", validators=[DataRequired()])
     email = StringField(u"email", validators=[DataRequired()])
     comment = StringField(u"comment", validators=[DataRequired(), Length(min=0, max=110)])
+    recaptcha = RecaptchaField()

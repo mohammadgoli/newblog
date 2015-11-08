@@ -94,7 +94,6 @@ def viewpost(post_number):
     form = CommentForm()
     if request.method == 'POST':
         if form.validate_on_submit():
-            print 'validated'
             new_comment = Comment(
                 form.name.data,
                 form.email.data,
@@ -103,8 +102,6 @@ def viewpost(post_number):
             )
             db.session.add(new_comment)
             db.session.commit()
-        else:
-            print error
     return render_template('specificpost.html', posts=specific_post(post_number), comments=comments(post_number), form=form)
 
 
@@ -136,7 +133,9 @@ def editposts():
     if request.method == 'POST':
         if form.validate_on_submit():
             new_post = Post(
+            	form.subject.data,
                 form.header.data,
+                form.digest.data,
                 form.body.data,
             )
             db.session.add(new_post)
@@ -175,17 +174,15 @@ def projects():
     form.ways.choices = choices
     if request.method == 'POST':
         print 'done!'
-        msg = Message(u"Hello {}".format(form.name.data),
+        msg = Message(u"با تشکر از اعلام آمادگی {}".format(form.name.data),
                       recipients=[form.email.data],
                       sender='gli.mhmd@gmail.com',
-                      body=u'hey now {}'.format(form.name.data)
+                      body=u'سلام.<br /> ممنون از این که برای همکاری در پروژه من اعلام آمادگی کردید.در اصرع وقت با شما تماس خواهم گرفت<br /> در صورتی که تماسی از بنده دریافت نکردید لطفا از طریق ایمیل من در سایت اقدام بفرمایید.<br /> با تشکر'.format(form.name.data)
                       )
         admin_msg = Message(u"you have a new subscription",
                             recipients=['gli.mhmd@gmail.com'],
                             sender='gli.mhmd@gmail.com',
-                            body=u'someone named {} wanted to know more about your last project \
-                            this buddy said {} and it\'s email is {} also the subject he/she wanted to cooperate with \
-                            you is {} with the phone number {}'.format(
+                            body=u'سلام محمد. یک فرد جدید مایل به همکاری در پروژه اخیر است <br />{}<br />{}<br />{}<br />{}<br />{}'.format(
                                 form.name.data, form.more.data, form.email.data, form.ways.data, form.phoneNumber.data))
         mail.send(msg)
         mail.send(admin_msg)
@@ -251,14 +248,14 @@ def deleteways():
 def about():
     form = ContactForm()
     if request.method == 'POST':
-        contact_msg = Message(u'this is a contact message',
+        contact_msg = Message(u'پیامتون دریافت شد!',
                               recipients=[form.email.data],
                               sender='gli.mhmd@gmail.com',
-                              body='your contact email was found ')
+                              body=u'پیامتون رو دریافت کردم . در اسرع وقت پاسخ خواهم داد !')
         admin_msg = Message(u'you have a new message!',
                             recipients=['gli.mhmd@gmail.com'],
                             sender='gli.mhmd@gmail.com',
-                            body=u'you have a new message from {}'.format(form.email))
+                            body=u'you have a new message from {} which says {}'.format(form.email.data, form.message.data))
         mail.send(contact_msg)
         mail.send(admin_msg)
     return render_template('about.html', form=form)
@@ -270,6 +267,7 @@ def vlog():
 
 
 @app.route('/newvideo', methods=['GET', 'POST'])
+@login_required
 def newvideo():
     form = VideoForm()
     if request.method == 'POST':
