@@ -116,10 +116,11 @@ section {
   .discription {display: none;}
   #centerSquare { transform: rotate(0);}
   .qucontent { transform: rotate(0);}
+  #mainpicture { z-index: 100; width: 5em; height: 5em;}
 }
 
 @media all and (min-width: 760px){
-  section {flex-wrap: wrap;}
+  section {flex-wrap: wrap; height: 100%;}
   #mainpicture {display: none;}
 }
 
