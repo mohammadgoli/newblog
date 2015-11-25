@@ -46,9 +46,9 @@ class WayForm(Form):
 
 
 class ContactForm(Form):
-    name = StringField(u"name", validators=[DataRequired()])
-    email = StringField(u"email", validators=[DataRequired(), Email()])
-    message = TextAreaField(u"message", validators=[DataRequired()])
+    name = StringField(u"نام", validators=[DataRequired()])
+    email = StringField(u"آدرس ایمیل", validators=[DataRequired(), Email()])
+    message = TextAreaField(u"پیام", validators=[DataRequired()])
     recaptcha = RecaptchaField()
 
 

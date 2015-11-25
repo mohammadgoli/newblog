@@ -11,14 +11,13 @@
 	text-align:center;
 	-webkit-border-radius:50%;
 	border-radius:50%;
-	background: #45484d;
+	background: #e62739;
     color:#f2f2f2;
     font-family: 'Lato', sans-serif;
     font-size:24px;
     line-height:70px;
     vertical-align:middle;
     text-decoration:none; 
-    background-image: url(about.png);
 }
 
 /*#ferromenu-controller .label{
@@ -32,7 +31,6 @@
 #ferromenu-controller.desktop:hover,
 #ferromenu-controller.mobile:active{
 	background:#6e737b;
-	background-image: url(about.png);
 }
 
 #nav li{
@@ -48,7 +46,7 @@
 	height:40px;
 	-webkit-border-radius:50%;
 	border-radius:50%;
-	background: #45484d;
+	background: #e62739;
 	line-height:40px;
 	display:block;
 }
@@ -61,4 +59,12 @@
 #nav li.desktop a:hover,
 #nav li.mobile a:active{
 	opacity:0.7;
+}
+
+@media all and (max-width: 760px){
+  #ferromenu-controller {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
 }

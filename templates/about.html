@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
   <title></title>
@@ -74,17 +75,22 @@
         <section id='contact'>
           <article class='contact'>
             <form dir="rtl" method="POST" action="{{ url_for('about') }}">
-              Name:<br />
+              {{ form.name.label }}<br />
               {{ form.name }}
               <br>
-              Email:<br />
+              <br>
+              {{ form.email.label }}<br />
               {{ form.email }}
               <br />
-              Comment:<br />
+              <br>
+              {{ form.message.label }}<br />
               {{ form.message }}
               <br />
+              <br>
               {{ form.recaptcha }}
-              <input type="submit" value="submit">
+              <br>
+              <br>
+              <input type="submit" value="ثبت" id="submit">
             </form>
             
           </article>
