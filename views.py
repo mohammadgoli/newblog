@@ -153,6 +153,9 @@ def deleteposts(postid):
     post = db.session.query(Post).filter_by(postid=newid)
     post.delete()
     db.session.commit()
+    comment = db.session.query(Comment).filter_by(post_id=newid)
+    comment.delete()
+    db.session.commit()
     flash(u'پاکش کردی :|')
     return redirect(url_for('blog'))
 

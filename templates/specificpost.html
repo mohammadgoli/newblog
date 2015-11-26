@@ -38,15 +38,16 @@
 <head>
 	<meta charset='UTF-8' />
 	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.ferro.ferroMenu.css') }}" />
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/specificpost.css') }}" />
 </head>
 <section id='container'>
 				<ul id="nav">
-				<li><a href="javascript:void(0);"><i class="icon-camera">t</i></a></li>
-				<li><a href="javascript:void(0);"><i class="icon-user">a</i></a></li>
-				<li><a href="javascript:void(0);"><i class="icon-comment-alt">a</i></a></li>
-				<li><a href="javascript:void(0);"><i class="icon-moon">s</i></a></li>
+				<li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
+				<li><a href="{{ url_for('projects') }}"><i class="fa fa-rocket"></i></a></li>
+				<li><a href="{{ url_for('vlog') }}"><i class="fa fa-video-camera"></i></a></li>
+				<li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
 				</ul>
 	<div id='subcontainer' dir="rtl">
     {% for post in posts %}
@@ -60,7 +61,9 @@
 		<article id='mainshit' dir="rtl">
 
         <p>{{ post.body|safe }}</p>
-        <a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
+        {% if 'logged_in' in session %}
+        	<a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
+        {% endif %}
 {#        <p id="salutation">دیدگاه</p>#}
 {#        {% for comment in comments %}#}
 {#            <p>{{ comment.name }}</p>#}
@@ -82,15 +85,22 @@
                 <br />
                 {{ form.comment(placeholder="نظر") }}
                 <br />
+                {{ form.recaptcha }}
+                <br />
                 <input type="submit" value="ثبت نظر" id="submit">
             </p>
             <hr >
         </form>
 
             {% endfor %}
+            <ul>
+            <li>
             {% for comment in comments %}
-                <p>{{ comment.name }}</p>
+                <p>نظری از : {{ comment.name }}</p>
+                <p> {{ comment.comment}}</p>
             {% endfor %}
+            </li>
+            </ul>
                 </div>
 			</aside>
 		</div>
