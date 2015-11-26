@@ -24,22 +24,23 @@
 	<article>
 	<div id="firstpage">
 		<div id="text">
-		{% for project in last_project %}
-			<h1 dir="rtl">پروژه ها</h1>
-			<h6 dir="rtl"> پروژه شماره {{ project.project_id }}</h6>
-			<h3 dir="rtl"> {{ project.subject }}</h3>
-			{% if 'logged_in' in session %}
-				<a href="{{ url_for('endproject', projectid= project.project_id )}}">done!</a>
-			{% endif %}
-			<div dir="rtl" id="discription">
-			<p>{{ project.discription }}</p>
-			{{ project.due_date }}
-			</div>
-		{% endfor %}
+			{% for project in last_project %}
+				<h1 dir="rtl">پروژه ها</h1>
+				<h6 dir="rtl"> پروژه شماره {{ project.project_id }}</h6>
+				<h3 dir="rtl"> {{ project.subject }}</h3>
+				{% if 'logged_in' in session %}
+					<a href="{{ url_for('endproject', projectid= project.project_id )}}">done!</a>
+				{% endif %}
+				<div dir="rtl" id="discription">
+				<p>{{ project.discription }}</p>
+				{{ project.due_date }}
+				</div>
+			{% endfor %}
 		</div>
 		<div id="wrapper">	
 			<div id="counter">
 				<div class="part">
+				<p class="name"> روز </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -49,6 +50,7 @@
 					</div>
 				</div>
 				<div class="part">
+				<p class="name"> ساعت </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -58,6 +60,7 @@
 					</div>
 				</div>
 				<div class="part">
+					<p class="name"> دقیقه </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -67,6 +70,7 @@
 					</div>
 				</div>
 				<div class="part">
+				<p class="name"> ثانیه </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -100,25 +104,29 @@
 		</div>
 	</div>
 	<div id="thirdpage">
-		<div id="discription2" dir="rtl">
-			<p dir="rtl">این یک متن است<br />اگر مایل به همکاری در آخرین پروژه هستید یا حتی اطلاعات بیشتری درباره آن بدانید فقط کافی است یک پیام بگذارید</p>
-		</div>
-		<div id="form" dir="rtl">
-			<form method="POST" action="{{ url_for('projects') }}">
-		    	{{ form.csrf_token }}<br />
-		  		{{ form.name.label }} &nbsp&nbsp&nbsp
-		  		{{ form.name }}<br /><br />
-				{{ form.phoneNumber.label }}&nbsp&nbsp&nbsp{{ form.phoneNumber }}<br /> <br />
-				{{ form.email.label }}&nbsp&nbsp&nbsp{{ form.email }}<br /><br /><br />
-				{{ form.more.label }}&nbsp&nbsp&nbsp{{ form.more }}
-				<br /><br /><br />
-				{{ form.ways.label }}&nbsp&nbsp&nbsp
-				{{ form.ways }}
-				<p>
-		            <input type="submit" value="مایلم درباره این پروژه بیشتر بدانم">
-		        </p>
-		        	</form>
-		</div>
+		{% if deactive %}
+		<div class="discription2" dir="rtl">این پروژه شخصی است یا نیاز بیشتری به همکاری ندارد. با سپاس از علاقه شما</div>
+		{% else %}
+			<div class="discription2" dir="rtl">
+				<p dir="rtl">این یک متن است<br />اگر مایل به همکاری در آخرین پروژه هستید یا حتی اطلاعات بیشتری درباره آن بدانید فقط کافی است یک پیام بگذارید</p>
+			</div>
+			<div id="form" dir="rtl">
+				<form method="POST" action="{{ url_for('projects') }}">
+			    	{{ form.csrf_token }}<br />
+			  		{{ form.name.label }} &nbsp&nbsp&nbsp
+			  		{{ form.name }}<br /><br />
+					{{ form.phoneNumber.label }}&nbsp&nbsp&nbsp{{ form.phoneNumber }}<br /> <br />
+					{{ form.email.label }}&nbsp&nbsp&nbsp{{ form.email }}<br /><br /><br />
+					{{ form.more.label }}&nbsp&nbsp&nbsp{{ form.more }}
+					<br /><br /><br />
+					{{ form.ways.label }}&nbsp&nbsp&nbsp
+					{{ form.ways }}
+					<p>
+			            <input type="submit" value="مایلم درباره این پروژه بیشتر بدانم">
+			        </p>
+			        	</form>
+			</div>
+		{% endif %}
 	</div>
 	</article>
 </section>

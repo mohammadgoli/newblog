@@ -54,7 +54,7 @@ p:lang(fa){
   height: 70%;
 }
 
-#discription2 {
+.discription2 {
   width: 100%;
   height: 30%;
   display: flex;
@@ -70,7 +70,6 @@ input{
   border: none;
   border-radius: 0px;
   border-bottom: 2px solid black;
-  background-color: transparent;
 }
 
 input:focus, textarea#more:focus {
@@ -90,7 +89,6 @@ textarea#more {
   height: 9em;
   border: none;
   border-radius: 0px;
-  background: transparent;
   border-right: 2px solid black;
   padding-right: 1em;
 }
@@ -162,7 +160,6 @@ td {
 
 #counter {
 	width: 80%;
-	height: 100%;
 	display: flex;
 	flex-direction: row;
 }
@@ -289,4 +286,23 @@ td {
     width: 8em;
     background: #000;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #e1e8f0;
+}
+
+.name {
+  z-index: 100;
+  padding-right: 5em;
+  color:  #e1e8f0;
+}
+
+@media all and (max-width: 760px){
+  .number { transform: rotate(0);}
+  span { display: none; }
+  div.number { background: transparent; width: 100%;}
+  #counter { background: #e1e8f0; width: 100%; }
+  .name { color: #3C3E40; padding-right: 0; }
+  #days, #hours, #mins, #secs { font-size: 2em; }
 }

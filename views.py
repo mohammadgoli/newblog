@@ -169,25 +169,29 @@ def deleteposts(postid):
 @app.route('/projects', methods=['GET', 'POST'])
 def projects():
     error = None
+    deactive = False
     form = SubscriptionForm()
     choices = [(option, option) for option in db.session.query(Way)]
-    form.ways.choices = choices
-    if request.method == 'POST':
-        print 'done!'
-        msg = Message(u"با تشکر از اعلام آمادگی {}".format(form.name.data),
-                      recipients=[form.email.data],
-                      sender='gli.mhmd@gmail.com',
-                      body=u'سلام.<br /> ممنون از این که برای همکاری در پروژه من اعلام آمادگی کردید.در اصرع وقت با شما تماس خواهم گرفت<br /> در صورتی که تماسی از بنده دریافت نکردید لطفا از طریق ایمیل من در سایت اقدام بفرمایید.<br /> با تشکر'.format(form.name.data)
-                      )
-        admin_msg = Message(u"you have a new subscription",
-                            recipients=['gli.mhmd@gmail.com'],
-                            sender='gli.mhmd@gmail.com',
-                            body=u'سلام محمد. یک فرد جدید مایل به همکاری در پروژه اخیر است <br />{}<br />{}<br />{}<br />{}<br />{}'.format(
-                                form.name.data, form.more.data, form.email.data, form.ways.data, form.phoneNumber.data))
-        mail.send(msg)
-        mail.send(admin_msg)
+    if choices:
+        form.ways.choices = choices
+        if request.method == 'POST':
+            print 'done!'
+            msg = Message(u"با تشکر از اعلام آمادگی {}".format(form.name.data),
+                          recipients=[form.email.data],
+                          sender='gli.mhmd@gmail.com',
+                          body=u'سلام.<br /> ممنون از این که برای همکاری در پروژه من اعلام آمادگی کردید.در اصرع وقت با شما تماس خواهم گرفت<br /> در صورتی که تماسی از بنده دریافت نکردید لطفا از طریق ایمیل من در سایت اقدام بفرمایید.<br /> با تشکر'.format(form.name.data)
+                          )
+            admin_msg = Message(u"you have a new subscription",
+                                recipients=['gli.mhmd@gmail.com'],
+                                sender='gli.mhmd@gmail.com',
+                                body=u'سلام محمد. یک فرد جدید مایل به همکاری در پروژه اخیر است <br />{}<br />{}<br />{}<br />{}<br />{}'.format(
+                                    form.name.data, form.more.data, form.email.data, form.ways.data, form.phoneNumber.data))
+            mail.send(msg)
+            mail.send(admin_msg)
+    else:
+        deactive = True
     return render_template('projects.html', form=form, last_project=last_project(),
-                           finished_projects=finished_projects(), error=error)
+                           finished_projects=finished_projects(), error=error, deactive=deactive)
 
 
 @app.route('/newproject', methods=['GET', 'POST'])
