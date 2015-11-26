@@ -30,13 +30,13 @@
 
 #ferromenu-controller.desktop:hover,
 #ferromenu-controller.mobile:active{
-	background:#6e737b;
+	background:#e62738;
+	opacity: 0.8;
 }
 
 #nav li{
 	color:#f2f2f2;
 	text-align:center;
-	position: fixed;
 }
 
 #nav li a{

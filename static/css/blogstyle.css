@@ -95,7 +95,7 @@ header h1 {
   left: 18px;
   height: 100%;
   width: 4px;
-  background: #6ed3cf;
+  background: #3C3E40;
 }
 @media only screen and (min-width: 1170px) {
   #cd-timeline {
@@ -142,7 +142,7 @@ header h1 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #6ed3cf, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px #3C3E40, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .cd-timeline-img img {
   display: block;
