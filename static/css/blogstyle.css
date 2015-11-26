@@ -485,3 +485,7 @@ header h1 {
 iframe {
   width: 100%;
 }
+
+.cd-timeline-content{
+  z-index: -100;
+}
