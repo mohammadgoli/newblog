@@ -60,7 +60,7 @@ class VideoForm(Form):
 
 
 class CommentForm(Form):
-    name = StringField(u"name", validators=[DataRequired()])
-    email = StringField(u"email", validators=[DataRequired()])
-    comment = TextAreaField(u"comment", validators=[DataRequired(), Length(min=0, max=110)])
+    name = StringField(u"نام", validators=[DataRequired()])
+    email = StringField(u"ایمیل", validators=[DataRequired()])
+    comment = TextAreaField(u"نظر", validators=[DataRequired(), Length(min=0, max=110)])
     recaptcha = RecaptchaField()

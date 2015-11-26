@@ -75,6 +75,28 @@ video {
 	margin-bottom: 1em;
 }
 
+#comment {
+	width: 40%;
+	height: 5em;
+}
+
+input {
+	padding: .5em;
+	margin-bottom: .5em;
+}
+
+
+input:focus, input:hover {
+	border-color: #3c948b;
+	border-style: solid;
+}
+
+#submit {
+	background: #e62739;
+	border-style: none;
+	padding: .8em;
+}
+
 header {
 	background: #3C3E40;
 	padding: 0.7em;

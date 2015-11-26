@@ -17,7 +17,7 @@ html * {
 body {
   font-size: 100%;
   font-family: "Droid Serif", serif;
-  color: #7f8c97;
+  color: white;
   background-color: #e1e8f0;
 }
 
@@ -317,7 +317,7 @@ header h1 {
     top: 24px;
     left: 100%;
     border-color: transparent;
-    border-left-color: white;
+    border-left-color: #9068be;
   }
   .cd-timeline-content .cd-read-more {
     float: left;
@@ -338,7 +338,7 @@ header h1 {
     left: auto;
     right: 100%;
     border-color: transparent;
-    border-right-color: white;
+    border-right-color: #9068be;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
     float: right;
@@ -487,5 +487,5 @@ iframe {
 }
 
 .cd-timeline-content{
-  z-index: -100;
+  z-index: ;
 }

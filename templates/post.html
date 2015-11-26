@@ -9,26 +9,14 @@
 
 			<div class="cd-timeline-content">
 				<h2>تست ۱</h2>
-				<p>{{ post.body|safe }}</p>
-				<a href="#0" class="cd-read-more">ادامه</a>
+				<p>{{ post.digest|safe }}</p>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more"> more </a>
                 {% if 'logged_in' in session %}
                     <a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
                 {% endif %}
 				<span class="cd-date">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
-{#<div class="timelinewraper">#}
-{#	<span class='timecircle'></span>#}
-{#	<div class="blogpost">#}
-{#		<h3 dir="rtl"> {{ post.header }} </h3>#}
-{#		{% if 'logged_in' in session %}#}
-{#		<h6>#}
-{#			<a href="{{ url_for('deleteposts', postid = post.postid ) }}">delete</a>#}
-{#		</h6>#}
-{#		{% endif %}#}
-{#		<p dir="rtl"> {{ post.body|safe }} </p>#}
-{#	</div>#}
-{#</div>#}
     {% endif %}
     {% if 'video' in post.subject %}
         <div class="cd-timeline-block">
@@ -39,7 +27,7 @@
 			<div class="cd-timeline-content">
 				<h2>Title of section 2</h2>
 				<p>{{ post.digest|safe }}</p>
-				<a href="#0" class="cd-read-more">Read more</a>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more">Read more</a>
 				<span class="cd-date">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
@@ -53,7 +41,7 @@
 			<div class="cd-timeline-content">
 				<h2>Title of section 2</h2>
 				<p>{{ post.digest|safe }}</p>
-				<a href="#0" class="cd-read-more">Read more</a>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more">Read more</a>
 				<span class="cd-date">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->

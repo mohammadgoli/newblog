@@ -58,6 +58,8 @@ def other_videos():
 def specific_post(postNumber):
     return db.session.query(Post).filter_by(postid=postNumber)
 
+def latest_post():
+    return db.session.query(Post).order_by(Post.postid.desc()).first()
 
 def comments(postNumber):
     return db.session.query(Comment).filter_by(post_id=postNumber)
@@ -102,7 +104,7 @@ def viewpost(post_number):
             )
             db.session.add(new_comment)
             db.session.commit()
-    return render_template('specificpost.html', posts=specific_post(post_number), comments=comments(post_number), form=form)
+    return render_template('specificpost.html', posts=specific_post(post_number), comments=comments(post_number), form=form, latest_post=latest_post())
 
 
 @app.route('/admin', methods=['GET', 'POST'])
