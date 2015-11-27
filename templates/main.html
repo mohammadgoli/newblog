@@ -5,6 +5,8 @@
 		<meta charset="UTF-8" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mainstyle.css') }}" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<title> Mohammd's Room! </title>
 	</head>
 	<body>
 		<section id='container'>
@@ -18,19 +20,22 @@
 				</a>
 				<a class="qu" href="{{ url_for('projects') }}">
 					<div class="qucontent">
-						<img src="{{ url_for('static', filename='img/proj.png') }}" width="64px" height="64px" class="titleImg" />
+						<!-- <img src="{{ url_for('static', filename='img/proj.png') }}" width="64px" height="64px" class="titleImg" /> -->
+						<span class='fa fa-rocket fa-3x'></span>
 						<p class="title">پروژه</p>
 					</div>
 				</a>
 				<a class="qu" href="{{ url_for('blog') }}">
 					<div class="qucontent">
-						<img src="{{ url_for('static', filename='img/blog.png') }}" width="64px" height="64px" class="titleImg" />
+						<!-- <img src="{{ url_for('static', filename='img/blog.png') }}" width="64px" height="64px" class="titleImg" /> -->
+						<span class='fa fa-pencil fa-3x'></span>
 						<p class="title">وبلاگ</p>
 					</div>
 				</a>
 				<a class="qu" href="{{ url_for('vlog') }}">
 					<div class="qucontent">
-						<img src="{{ url_for('static', filename='img/vlog.png') }}" width="64px" height="64px" class="titleImg" />
+						<!-- <img src="{{ url_for('static', filename='img/vlog.png') }}" width="64px" height="64px" class="titleImg" /> -->
+						<span class='fa fa-video-camera fa-3x'></span>
 						<p class="title">ویدیو</p>
 					</div>
 				</a>

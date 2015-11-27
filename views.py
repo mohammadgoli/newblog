@@ -79,6 +79,7 @@ def flash_errors(form):
 def logout():
     session.pop('logged_in', None)
     flash(u'بازم بیا از این ورا')
+    return redirect(url_for('main'))
 
 
 @app.route('/')
@@ -124,11 +125,15 @@ def admin():
                     session['logged_in'] = True
                     session.permanent = True
                     flash(u'ببین کی اینجاس!!!')
-                    return redirect(url_for('editposts'))
+                    return redirect(url_for('adminterminal'))
         return render_template('login.html', form=form, error=error)
     else:
         return redirect(url_for('blog'))
 
+@app.route('/adminterminal')
+@login_required
+def adminterminal():
+    return render_template('adminterminal.html')
 
 @app.route('/editposts', methods=['GET', 'POST'])
 @login_required
