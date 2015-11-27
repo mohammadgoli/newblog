@@ -89,14 +89,17 @@ class Video(db.Model):
     video_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     video_type = db.Column(db.String, nullable=False)
+    digest = db.Column(db.String, nullable=False)
     thumbnail = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
+    comments = db.relationship('videoComment', backref='commentor')
 
-    def __init__(self, name, video_type, thumbnail, address):
+    def __init__(self, name, video_type, digest, address, thumbnail):
         self.name = name
         self.video_type = video_type
-        self.thumbnail = thumbnail
+        self.digest = digest
         self.address = address
+        self.thumbnail = thumbnail
 
     def __repr__(self):
         return self.name
@@ -120,3 +123,21 @@ class Comment(db.Model):
     def __repr__(self):
         return self.comment
 
+
+class videoComment(db.Model):
+    __tablename__ = 'videoComments'
+
+    comment_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, nullable=False)
+    comment = db.Column(db.String, nullable=False)
+    video_id = db.Column(db.Integer, db.ForeignKey('videos.video_id'))
+
+    def __init__(self, name, email, comment, video_id):
+        self.name = name
+        self.email = email
+        self.comment = comment
+        self.video_id = video_id
+
+    def __repr__(self):
+        return self.comment

@@ -4,12 +4,16 @@
         <form method="POST" action="{{ url_for('newvideo') }}">
             {{ form.csrf_token }}
             <p>
-                {{ form.name.label }}<br>
+                نام<br>
                 {{ form.name }} <br /><br /><br />
-                متن<br /><br />
+                نوع<br /><br />
                 {{ form.video_type }}<br />
-                تاریخ<br />
+                آدرس<br />
                 {{ form.address }}<br /><br />
+                تصویر <br />
+                {{ form.thumbnail }}<br /><br />
+                خلاضه <br />
+                {{ form.digest }}
             </p>
             <p>
                 <input type="submit" value="بزن بریم">

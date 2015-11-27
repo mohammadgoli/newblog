@@ -54,9 +54,10 @@ class ContactForm(Form):
 
 class VideoForm(Form):
     name = StringField(u"name", validators=[DataRequired()])
-    video_type = SelectField(u"type", validators=[DataRequired()], choices=[(('test'), ('test'))])
+    video_type = SelectField(u"type", validators=[DataRequired()], choices=[(('aparat'), ('aparat')), (('youtube'), ('youtube')), (('viemo'), ('viemo')), (('local'), ('local'))])
     address = StringField(u"address", validators=[DataRequired()])
-    thumbnail = StringField(u"thumbnail", validators=[DataRequired()])
+    thumbnail = StringField(u"thumbnail", validators=[DataRequired()], default=u'http://www.siresolution.com/images/employee/video-play-button-png.png')
+    digest = StringField(u"خلاصه", validators=[DataRequired()])
 
 
 class CommentForm(Form):

@@ -1,0 +1,17 @@
+{% extends "vlog.html" %}
+{% block content %}
+{% for video in videos %}
+	<a id="onevideo" href="{{ url_for('view_video', video_number=video.video_id)}}">
+		<div id="img"><img src={{video.thumbnail}} id="thumbnail" /></div>
+		<div id="title" dir="rtl">
+			<h3>
+				{{video.name}} 
+			</h3>
+			<p>
+				{{video.digest}}
+			</p>
+		</div>
+	</a>
+{% endfor %}
+{% endblock %}
+

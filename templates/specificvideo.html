@@ -14,31 +14,24 @@
 				<li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
 				</ul>
 	<div id='subcontainer' dir="rtl">
-    {% for post in posts %}
+    {% for video in videos %}
 		<header>
-			<h1>{{ post.header }}</h1>
-			<h3>{{ post.date }}</h3>
-			{%if latest_post.postid == post.postid %}
+			<h1>{{ video.name }}</h1>
+			<h3>{{ video.video_type }}</h3>
+			{%if latest_video.video_id == video.video_id %}
 				<h4> new </h4>
 			{%endif%}
 		</header>
-		<article id='mainshit' dir="rtl">
-
-        <p>{{ post.body|safe }}</p>
+        {{ video.address|safe }}
         {% if 'logged_in' in session %}
-        	<a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
+        	<a href="{{ url_for('deletevideos', videoid = video.video_id ) }}" class="cd-read-more"> پاک کردن</a>
         {% endif %}
-{#        <p id="salutation">دیدگاه</p>#}
-{#        {% for comment in comments %}#}
-{#            <p>{{ comment.name }}</p>#}
-{#        {% endfor %}#}
-		</article>
 		<div id="comments">
 			<aside>
 				<input class="toggle-box" id="header1" type="checkbox" >
 				<label for="header1">برای مشاهده دیدگاه ها کلیلک کنید:</label>
 				<div>
-        <form method="POST" action="{{ url_for('viewpost', post_number=post.postid) }}">
+        <form method="POST" action="{{ url_for('view_video', video_number=video.video_id) }}">
             {{ form.csrf_token }}
             <p>
             	<hr >
@@ -69,12 +62,12 @@
 			</aside>
 		</div>
 	</div>
-	{% for post in posts%}
-		{% if post.postid+1 <= latest_post.postid %}
-			<a href="{{ url_for('viewpost', post_number=post.postid+1) }}" id="next"><img src="{{ url_for('static', filename='img/next.png') }}"></a>
+	{% for video in videos%}
+		{% if video.video_id+1 <= latest_video.video_id %}
+			<a href="{{ url_for('view_video', video_number=video.video_id+1) }}" id="next"><img src="{{ url_for('static', filename='img/next.png') }}"></a>
 		{% endif %}
-		{% if post.postid-1 >= 1 %}
-			<a href="{{ url_for('viewpost', post_number=post.postid-1) }}" id="previous"><img src="{{ url_for('static', filename='img/previous.png') }}"></a>
+		{% if video.video_id-1 >= 1 %}
+			<a href="{{ url_for('view_video', video_number=video.video_id-1) }}" id="previous"><img src="{{ url_for('static', filename='img/previous.png') }}"></a>
 		{% endif %}
 	{% endfor %}
 </section>
@@ -89,5 +82,9 @@
 				delay 		: 50,
 			});
 		});
+		// var clientHeight = document.getElementById('mainshit').style.height;
+		// var clientWidth = document.getElementById('mainshit').style.width;
+		// document.getElementById('iframe').height = clientHeight;
+		// document.getElementById('iframe').width = clientWidth;
 	</script>
 </html>

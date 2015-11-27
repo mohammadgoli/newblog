@@ -12,7 +12,7 @@ app.config.from_pyfile("_config.py")
 db = SQLAlchemy(app)
 mail = Mail(app)
 
-from models import Post, Project, Way, Video, Comment
+from models import Post, Project, Way, Video, Comment, videoComment
 
 
 # helper functions
@@ -46,14 +46,14 @@ def finished_projects():
 def last_project():
     return db.session.query(Project).filter_by(finished='0')
 
+def videos():
+    return db.session.query(Video).order_by(Video.video_id.desc())
+
+def specific_video(videoNumber):
+    return db.session.query(Video).filter_by(video_id=videoNumber)
 
 def latest_video():
     return db.session.query(Video).order_by(Video.video_id.desc()).first()
-
-
-def other_videos():
-    return db.session.query(Video).order_by(Video.video_id.desc())
-
 
 def specific_post(postNumber):
     return db.session.query(Post).filter_by(postid=postNumber)
@@ -63,6 +63,9 @@ def latest_post():
 
 def comments(postNumber):
     return db.session.query(Comment).filter_by(post_id=postNumber)
+
+def videoComments(videoNumber):
+    return db.session.query(videoComment).filter_by(video_id=videoNumber)
 
 
 def flash_errors(form):
@@ -272,20 +275,51 @@ def about():
 
 @app.route('/vlog', methods=['GET', 'POST'])
 def vlog():
-    return render_template('vlog.html', latest_video=latest_video(), other_videos=other_videos())
+    return render_template('vlogpost.html', videos=videos(), latest_video=latest_video())
 
+@app.route('/vlog/<int:video_number>', methods=['GET','POST'])
+def view_video(video_number):
+    error = None
+    form = CommentForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            new_comment = videoComment(
+                form.name.data,
+                form.email.data,
+                form.comment.data,
+                video_number
+            )
+            db.session.add(new_comment)
+            db.session.commit()
+    return render_template('specificvideo.html', videos=specific_video(video_number), comments=videoComments(video_number), form=form, latest_video=latest_video())
 
 @app.route('/newvideo', methods=['GET', 'POST'])
 @login_required
 def newvideo():
     form = VideoForm()
     if request.method == 'POST':
-        new_video = [
+        new_video = Video(
             form.name.data,
             form.video_type.data,
+            form.digest.data,
             form.address.data,
-        ]
+            form.thumbnail.data
+        )
         db.session.add(new_video)
         db.session.commit()
 
     return render_template('newvideo.html', form=form)
+
+
+@app.route('/deletevideos/<int:videoid>', methods=['GET', 'POST'])
+@login_required
+def deletevideos(vidoid):
+    newid = videoid
+    video = db.session.query(Video).filter_by(video_id=newid)
+    video.delete()
+    db.session.commit()
+    comment = db.session.query(videoComment).filter_by(video_id=newid)
+    comment.delete()
+    db.session.commit()
+    flash(u'پاکش کردی :|')
+    return redirect(url_for('vlog'))
