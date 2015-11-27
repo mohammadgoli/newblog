@@ -8,8 +8,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 DATABASE_NAME = 'blog.db'
 
 #the user name and password for me (admin :P)
-USERNAME = 'admin22'
-PASSWORD = '12345'
+USERNAME = 'admin@MohammadGoli'
+PASSWORD = 'monthypython@@@!85Sex'
 
 #3rd we combine the things to define database path 
 DATABASE_PATH = os.path.join(basedir, DATABASE_NAME)
