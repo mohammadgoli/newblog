@@ -36,6 +36,10 @@ h1, h2 {
   font-weight: bold;
 }
 
+h1 {
+  padding-top: 7%;
+}
+
 /* -------------------------------- 
 
 Modules - reusable parts of our design
@@ -61,7 +65,7 @@ Main components
 -------------------------------- */
 header {
   height: 200px;
-  line-height: 200px;
+  line-height: 20px;
   text-align: center;
   background: #3C3E40;
 }
@@ -73,7 +77,7 @@ header h1 {
 @media only screen and (min-width: 1170px) {
   header {
     height: 300px;
-    line-height: 300px;
+    line-height: 30px;
   }
   header h1 {
     font-size: 24px;
@@ -271,7 +275,7 @@ header h1 {
 .cd-timeline-content .cd-read-more {
   float: right;
   padding: .8em 1em;
-  background: #6ed3cf;
+  background: #3c948b;
   color: white;
   border-radius: 0.25em;
 }
@@ -488,4 +492,15 @@ iframe {
 
 .cd-timeline-content{
   z-index: ;
+}
+
+.cd-date {
+  color :#3c948b;
+}
+
+.cd-timeline-img.cd-picture, .cd-timeline-img.cd-movie {
+  background: #e62739;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

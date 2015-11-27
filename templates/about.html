@@ -3,6 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
   <title></title>
   <style type="text/css">
@@ -21,10 +22,10 @@
   <section class='container'>
     <header></header>
         <ul id="nav">
-        <li><a href="javascript:void(0);"><i class="icon-camera">t</i></a></li>
-        <li><a href="javascript:void(0);"><i class="icon-user">a</i></a></li>
-        <li><a href="javascript:void(0);"><i class="icon-comment-alt">a</i></a></li>
-        <li><a href="javascript:void(0);"><i class="icon-moon">s</i></a></li>
+        <li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
+        <li><a href="{{ url_for('projects') }}"><i class="fa fa-rocket"></i></a></li>
+        <li><a href="{{ url_for('vlog') }}"><i class="fa fa-video-camera"></i></a></li>
+        <li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
         </ul>
     <article>
       <!-- first page (profile picture and name) -->

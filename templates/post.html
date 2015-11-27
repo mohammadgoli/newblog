@@ -4,13 +4,13 @@
     {% if 'text' in post.subject %}
         <div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture">
-				<img src="img/cd-icon-picture.svg" alt="Picture">
+				<span class="fa fa-file-text"></span>
 			</div> <!-- cd-timeline-img -->
 
 			<div class="cd-timeline-content">
 				<h2>تست ۱</h2>
 				<p>{{ post.digest|safe }}</p>
-				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more"> more </a>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more"> ادامه متن </a>
                 {% if 'logged_in' in session %}
                     <a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
                 {% endif %}
@@ -21,13 +21,13 @@
     {% if 'video' in post.subject %}
         <div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-movie">
-				<img src="img/cd-icon-movie.svg" alt="Movie">
+				<span class="fa fa-youtube-play"></span>
 			</div> <!-- cd-timeline-img -->
 
 			<div class="cd-timeline-content">
 				<h2>Title of section 2</h2>
 				<p>{{ post.digest|safe }}</p>
-				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more">Read more</a>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more">مشاهده ویدیو</a>
 				<span class="cd-date">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
@@ -35,7 +35,7 @@
     {% if 'imagetext' in post.subject %}
         <div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture">
-				<img src="img/cd-icon-picture.svg" alt="picture">
+				<span class="fa fa-file-image-o"></span>
 			</div> <!-- cd-timeline-img -->
 
 			<div class="cd-timeline-content">
