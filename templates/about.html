@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=NO">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+
   <title></title>
   <style type="text/css">
     @font-face { 
@@ -19,7 +22,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.ferro.ferroMenu.css') }}" />
 </head>
 <body>
-  <section class='container'>
+  <section class='maincontainer'>
     <header></header>
         <ul id="nav">
         <li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
@@ -58,15 +61,15 @@
       <div id="fourthpage">
          <article class='socialicons'>
             <ul class='circle-container'>
-              <li><a href="http://google.com"><img src='{{url_for("static",filename="img/64/1.png")}}'></a></li>
-              <li><img src='{{url_for("static",filename="img/64/2.png")}}'></li>
-              <li><img src='{{url_for("static",filename="img/64/3.png")}}'></li>
-              <li><img src='{{url_for("static",filename="img/64/4.png")}}'></li>
-              <li><img src='{{url_for("static",filename="img/64/5.png")}}'></li>
-              <li><img src='{{url_for("static",filename="img/64/6.png")}}'></li>
-              <li><img src='{{url_for("static",filename="img/64/7.png")}}'></li>
-              <li><img src='{{url_for("static",filename="img/64/8.png")}}'></li>
-              <li><img src='{{url_for("static",filename="img/64/9.png")}}'></li>
+              <li><a href="https://www.facebook.com/3.1415thon"><img src='{{url_for("static",filename="img/64/1.png")}}'></a></li>
+              <li><a href="ir.linkedin.com/in/mohammadgoli"><img src='{{url_for("static",filename="img/64/2.png")}}'></a></li>
+              <li><a href="mailto:gli.mhmd@gmail.com"><img src='{{url_for("static",filename="img/64/3.png")}}'></a></li>
+              <li><a href="https://www.instagram.com/mammad_goli/"><img src='{{url_for("static",filename="img/64/4.png")}}'></a></li>
+              <li><a href="https://twitter.com/MammadGoli"><img src='{{url_for("static",filename="img/64/5.png")}}'></a></li>
+              <li><a href="https://www.youtube.com/channel/UCilYOkp7ISIybbKg9KFl24w"><img src='{{url_for("static",filename="img/64/6.png")}}'></a></li>
+              <li><a href="facebook:3.1415thon"><img src='{{url_for("static",filename="img/64/7.png")}}'></a></li>
+              <li><a href="http://telegram.me/mohammadgoli"><img src='{{url_for("static",filename="img/64/8.png")}}'></a></li>
+              <li><a href="http://google.com"><img src='{{url_for("static",filename="img/64/9.png")}}'></a></li>
             </ul>
           </article>
       </div>
@@ -75,23 +78,28 @@
       <div class="thirdpage">
         <section id='contact'>
           <article class='contact'>
-            <form dir="rtl" method="POST" action="{{ url_for('about') }}">
-              {{ form.name.label }}<br />
-              {{ form.name }}
-              <br>
-              <br>
-              {{ form.email.label }}<br />
-              {{ form.email }}
+            <form dir="rtl" method="POST" action="{{ url_for('about') }}" class="form-horizontal" role="form" >
+            <div class="form-group">
+               <div class="col-sm-7 col-xs-7 pull-right">
+              {{ form.name(class_="form-control", placeholder="نام") }}
+                </div>
+            </div>
+            <div class="form-group">
+               <div class="col-sm-7 col-xs-7 pull-right">
+              {{ form.email(class_="form-control", placeholder="ایمیل") }}
+                </div>
+            </div>
+            <div class="form-group">
+               <div class="col-sm-12 col-xs-12 pull-right">
+              {{ form.message(class_="form-control", placeholder="پیام") }}
+                </div>
+            </div>
               <br />
-              <br>
-              {{ form.message.label }}<br />
-              {{ form.message }}
               <br />
-              <br>
               {{ form.recaptcha }}
               <br>
               <br>
-              <input type="submit" value="ثبت" id="submit">
+              <button type="button" class="btn btn-primary btn-block" > ثبت </button>
             </form>
             
           </article>
@@ -109,6 +117,7 @@
       $("#nav").ferroMenu({
         position  : "right-bottom",
         delay     : 50,
+        drag      : false,
       });
     });
   </script>

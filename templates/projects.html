@@ -4,6 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=NO">
 	<meta charset='UTF-8' />
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/projectsstyle.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.ferro.ferroMenu.css') }}" />
@@ -17,19 +18,13 @@
 </head>
 <body>
 	<section>
-		<ul id="nav">
-			<li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
-			<li><a href="{{ url_for('projects') }}"><i class="fa fa-rocket"></i></a></li>
-			<li><a href="{{ url_for('vlog') }}"><i class="fa fa-video-camera"></i></a></li>
-			<li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
-		</ul>	
-	<article>
-	<div id="firstpage">
-		<div id="text">
+	<article lang="fa">
+	<div id="firstpage" lang="fa">
+		<div id="text" lang="fa">
 			{% for project in last_project %}
-				<h1 dir="rtl">پروژه ها</h1>
-				<h6 dir="rtl"> پروژه شماره {{ project.project_id }}</h6>
-				<h3 dir="rtl"> {{ project.subject }}</h3>
+				<h1 dir="rtl" lang="fa">پروژه ها</h1>
+				<h6 dir="rtl" lang="fa"> پروژه شماره {{ project.project_id }}</h6>
+				<h3 dir="rtl" lang="fa"> {{ project.subject }}</h3>
 				{% if 'logged_in' in session %}
 					<a href="{{ url_for('endproject', projectid= project.project_id )}}">done!</a>
 				{% endif %}
@@ -41,7 +36,7 @@
 		<div id="wrapper">	
 			<div id="counter">
 				<div class="part">
-				<p class="name"> روز </p>
+				<p class="name" lang="fa"> روز </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -51,7 +46,7 @@
 					</div>
 				</div>
 				<div class="part">
-				<p class="name"> ساعت </p>
+				<p class="name" lang="fa"> ساعت </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -61,7 +56,7 @@
 					</div>
 				</div>
 				<div class="part">
-					<p class="name"> دقیقه </p>
+					<p class="name" lang="fa"> دقیقه </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -71,7 +66,7 @@
 					</div>
 				</div>
 				<div class="part">
-				<p class="name"> ثانیه </p>
+				<p class="name" lang="fa"> ثانیه </p>
 					<div class="number">
 						<span class="l1"></span>
 					 	<span class="l2"></span>
@@ -86,50 +81,73 @@
 	<div id="secondpage">
 		<div id="finishedsection" dir="rtl">
 			<section id="finished_pro">
-				<header id="finished_header"></header>
-				<table dir="rtl">
+				<header id="finished_header" lang="fa">در این قسمت میتوانید پروژه های قبلی را مشاهده و فایل های مربوطه را دانلود نمایید!</header>
+				<table dir="rtl" lang="fa">
 				{% for project in finished_projects %}
 				  <tr>
-				    <td>{{ project.subject }}</td>
-				    <td>
+				    <td lang="fa">{{ project.subject }}</td>
+				    <td lang="fa">
 				    	{% if project.download_file %}
-				    		<a href="" class="downlink">download</a>
+				    		<a href="" class="downlink"><button type="button" class="btn btn-danger" > download </button></a>
 				    	{% endif %}
+				    	<p id="projectDiscription">
 				    	{{ project.discription }}
-				    </td>
-				    <td class="date">{{ project.due_date }}</td>
+				    	</p>
+				    </td lang="fa">
+				    <td class="date" lang="fa">{{ project.due_date }}</td>
 				  </tr>
 				{% endfor %}
 				</table>
 			</section>
 		</div>
 	</div>
-	<div id="thirdpage">
+	<div id="thirdpage" lang="fa">
 		{% if deactive %}
-		<div class="discription2" dir="rtl">این پروژه شخصی است یا نیاز بیشتری به همکاری ندارد. با سپاس از علاقه شما</div>
+		<div class="discription2" dir="rtl" lang="fa">این پروژه شخصی است یا نیاز بیشتری به همکاری ندارد. با سپاس از علاقه شما</div>
 		{% else %}
-			<div class="discription2" dir="rtl">
+			<div class="discription2" dir="rtl" lang="fa">
 				<p dir="rtl">این یک متن است<br />اگر مایل به همکاری در آخرین پروژه هستید یا حتی اطلاعات بیشتری درباره آن بدانید فقط کافی است یک پیام بگذارید</p>
 			</div>
-			<div id="form" dir="rtl">
-				<form method="POST" action="{{ url_for('projects') }}">
-			    	{{ form.csrf_token }}<br />
-			  		{{ form.name.label }} &nbsp&nbsp&nbsp
-			  		{{ form.name }}<br /><br />
-					{{ form.phoneNumber.label }}&nbsp&nbsp&nbsp{{ form.phoneNumber }}<br /> <br />
-					{{ form.email.label }}&nbsp&nbsp&nbsp{{ form.email }}<br /><br /><br />
-					{{ form.more.label }}&nbsp&nbsp&nbsp{{ form.more }}
-					<br /><br /><br />
-					{{ form.ways.label }}&nbsp&nbsp&nbsp
-					{{ form.ways }}
-					<p>
-			            <input type="submit" value="مایلم درباره این پروژه بیشتر بدانم">
-			        </p>
-			        	</form>
+			<div id="form" dir="rtl" lang="fa">
+				<form method="POST" action="{{ url_for('projects') }}" class="form-horizontal" role="form" >
+				{{ form.csrf_token }}
+				<div class="form-group">
+					<div class="col-sm-4 pull-right" lang="fa">
+			  		{{ form.name(class_="form-control", placeholder="نام") }}
+			  		</div>
+			  	</div>
+			  	<div class="form-group">
+               		<div class="col-sm-4 pull-right" lang="fa">
+              		{{ form.phoneNumber(class_="form-control", placeholder="شماره تلفن") }}
+               		 </div>
+            	</div>
+				<div class="form-group">
+					<div class="col-sm-4 pull-right" lang="fa">
+						{{ form.email(class_="form-control", placeholder="ایمیل") }}
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12 pull-right" lang="fa">
+						{{ form.more(class_="form-control", placeholder="توضیحات اضافه", rows="7") }}
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="pull-right" lang="fa">
+						{{ form.ways(class_="form-control") }}
+					</div>
+				</div>
+					<button type="button" class="btn btn-danger" lang="fa"> ثبت </button>
+			</form>
 			</div>
 		{% endif %}
 	</div>
 	</article>
+		<ul id="nav">
+			<li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
+			<li><a href="{{ url_for('projects') }}"><i class="fa fa-rocket"></i></a></li>
+			<li><a href="{{ url_for('vlog') }}"><i class="fa fa-video-camera"></i></a></li>
+			<li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
+		</ul>	
 </section>
 </body>
 <script type="text/javascript" src='{{ url_for('static', filename='js/projectscript.js')}}'></script>
@@ -147,6 +165,7 @@
 			$("#nav").ferroMenu({
 				position 	: "right-bottom",
 				delay 		: 50,
+	        	drag      : false,
 			});
 		});
 	</script>

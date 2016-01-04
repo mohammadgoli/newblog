@@ -8,19 +8,21 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.ferro.ferroMenu.css') }}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<title> ولاگ محمد گلی </title>
+	<script src='http://www.google.com/recaptcha/api.js'></script>
+	<style type="text/css">
+		@font-face { 
+			font-family: "sample";
+			src: url("{{ url_for('static', filename='fonts/sample.ttf') }}") format("truetype");
+		}
+	</style>
 </head>
 <body>
-	<ul id="nav">
-        <li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
-        <li><a href="{{ url_for('projects') }}"><i class="fa fa-rocket"></i></a></li>
-        <li><a href="{{ url_for('vlog') }}"><i class="fa fa-video-camera"></i></a></li>
-        <li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
-        </ul>
+
 	<section>
 		<div id='firstpage'>
 			<div id="discription" dir="rtl">
 				<img src="{{ url_for('static', filename='img/video2.png') }}" id="videoicon" />
-				<p>
+				<p lang="fa">
 				 به قسمت ویدیو ها خوش آمدید <br />
 				 ویدیو بلاگ یا ولاگ همان بلاگ است به صورت تصویری <br />
 				</p>
@@ -37,7 +39,7 @@
 		<div id="thirdpage">
 			<div id="header">
 				<header>
-					<h1> ویدیو ها </h1>
+					<h1 lang="fa"> ویدیو ها </h1>
 				</header>
 			</div>
 			<div id="allvideos" dir="rtl">
@@ -45,7 +47,15 @@
  {%endblock%}
 			</div>
 		</div>
+	<ul id="nav">
+		<li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
+		<li><a href="{{ url_for('projects') }}"><i class="fa fa-rocket"></i></a></li>
+		<li><a href="{{ url_for('vlog') }}"><i class="fa fa-video-camera"></i></a></li>
+		<li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
+	</ul>
+
 	</section>
+
 <script src="{{ url_for('static', filename='js/jquery-1.11.3.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/blog.js') }}"></script> <!-- Resource jQuery -->
 <script src="{{ url_for('static', filename='js/jquery.ferro.ferroMenu-1.0.min.js') }}" type="text/javascript">
@@ -56,6 +66,7 @@
 			$("#nav").ferroMenu({
 				position 	: "right-bottom",
 				delay 		: 50,
+				drag      : false,
 			});
 		});
 	</script>

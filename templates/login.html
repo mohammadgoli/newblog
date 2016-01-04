@@ -1,5 +1,8 @@
 <!doctype HTML>
 <html>
+<head>
+    <script src='//www.google.com/recaptcha/api.js'></script>
+</head>
     <body>
         <form method="POST" action="{{ url_for('admin') }}">
             {{ form.csrf_token }}

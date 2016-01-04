@@ -40,6 +40,10 @@ h1 {
   padding-top: 7%;
 }
 
+*:lang(fa){
+  font-family: 'sample', tahoma, Arial;
+  font-size: 1em;
+}
 /* -------------------------------- 
 
 Modules - reusable parts of our design
@@ -495,7 +499,7 @@ iframe {
 }
 
 .cd-date {
-  color :#3c948b;
+  color :white;
 }
 
 .cd-timeline-img.cd-picture, .cd-timeline-img.cd-movie {

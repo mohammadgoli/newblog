@@ -17,24 +17,24 @@
 	<div id='subcontainer' dir="rtl">
     {% for video in videos %}
 		<header>
-			<h1>{{ video.name }}</h1>
-			<h3>{{ video.video_type }}</h3>
+			<h1 lang="fa">{{ video.name }}</h1>
+			<h3 lang="fa">{{ video.video_type }}</h3>
 			{%if latest_video.video_id == video.video_id %}
 				<h4> new </h4>
 			{%endif%}
 		</header>
         {{ video.address|safe }}
         {% if 'logged_in' in session %}
-        	<a href="{{ url_for('deletevideos', videoid = video.video_id ) }}" class="cd-read-more"> پاک کردن</a>
+        	<a href="{{ url_for('deletevideos', videoid = video.video_id ) }}" class="cd-read-more" lang="fa"> پاک کردن</a>
         {% endif %}
 		<div id="comments">
 			<aside>
 				<input class="toggle-box" id="header1" type="checkbox" >
-				<label for="header1">برای مشاهده دیدگاه ها کلیلک کنید:</label>
+				<label for="header1" lang="fa">برای مشاهده دیدگاه ها کلیلک کنید:</label>
 				<div>
         <form method="POST" action="{{ url_for('view_video', video_number=video.video_id) }}">
             {{ form.csrf_token }}
-            <p>
+            <p lang="fa">
             	<hr >
             	<br />
                 {{ form.name(placeholder="نام") }}
@@ -54,8 +54,8 @@
             <ul>
             <li>
             {% for comment in comments %}
-                <p>نظری از : {{ comment.name }}</p>
-                <p> {{ comment.comment}}</p>
+                <p lang="fa">نظری از : {{ comment.name }}</p>
+                <p lang="fa"> {{ comment.comment}}</p>
             {% endfor %}
             </li>
             </ul>
@@ -81,6 +81,7 @@
 			$("#nav").ferroMenu({
 				position 	: "right-bottom",
 				delay 		: 50,
+				drag      : false,
 			});
 		});
 		// var clientHeight = document.getElementById('mainshit').style.height;

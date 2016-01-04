@@ -6,6 +6,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.ferro.ferroMenu.css') }}" />
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/specificpost.css') }}" />
+	<style type="text/css">
+		@font-face { 
+			font-family: "sample";
+			src: url("{{ url_for('static', filename='fonts/sample.ttf') }}") format("truetype");
+		}
+	</style>
 </head>
 <section id='container'>
 				<ul id="nav">
@@ -17,15 +23,15 @@
 	<div id='subcontainer' dir="rtl">
     {% for post in posts %}
 		<header>
-			<h1>{{ post.header }}</h1>
-			<h3>{{ post.date }}</h3>
+			<h1 lang="fa">{{ post.header }}</h1>
+			<h3 lang="fa">{{ post.date }}</h3>
 			{%if latest_post.postid == post.postid %}
-				<h4> new </h4>
+				<h4 lang="fa"> new </h4>
 			{%endif%}
 		</header>
-		<article id='mainshit' dir="rtl">
+		<article id='mainshit' dir="rtl" lang="fa">
 
-        <p>{{ post.body|safe }}</p>
+        <p lang="fa">{{ post.body|safe }}</p>
         {% if 'logged_in' in session %}
         	<a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
         {% endif %}
@@ -37,7 +43,7 @@
 		<div id="comments">
 			<aside>
 				<input class="toggle-box" id="header1" type="checkbox" >
-				<label for="header1">برای مشاهده دیدگاه ها کلیلک کنید:</label>
+				<label for="header1" lang="fa">برای مشاهده دیدگاه ها کلیلک کنید:</label>
 				<div>
         <form method="POST" action="{{ url_for('viewpost', post_number=post.postid) }}">
             {{ form.csrf_token }}
@@ -52,7 +58,7 @@
                 <br />
                 {{ form.recaptcha }}
                 <br />
-                <input type="submit" value="ثبت نظر" id="submit">
+                <input type="submit" value="ثبت نظر" id="submit" lang="fa">
             </p>
             <hr >
         </form>
@@ -61,8 +67,8 @@
             <ul>
             <li>
             {% for comment in comments %}
-                <p>نظری از : {{ comment.name }}</p>
-                <p> {{ comment.comment}}</p>
+                <p lang="fa">نظری از : {{ comment.name }}</p>
+                <p lang="fa"> {{ comment.comment}}</p>
             {% endfor %}
             </li>
             </ul>
@@ -88,6 +94,7 @@
 			$("#nav").ferroMenu({
 				position 	: "right-bottom",
 				delay 		: 50,
+				drag      : false,
 			});
 		});
 	</script>

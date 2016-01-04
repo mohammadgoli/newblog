@@ -8,23 +8,30 @@
   	<link rel="stylesheet" href="{{ url_for('static', filename='css/blogstyle.css') }}"> <!-- Resource style -->
   	<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.ferro.ferroMenu.css') }}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<title>وبلاگ محمد گلی</title>
+	<style type="text/css">
+		@font-face { 
+			font-family: "sample";
+			src: url("{{ url_for('static', filename='fonts/sample.ttf') }}") format("truetype");
+		}
+	</style>	
+	<title lang="fa">وبلاگ محمد گلی</title>
 </head>
 <body>
 	<header dir='rtl'>
-		<h1>به وبلاگ من خوش آمدید</h1>
+		<h1 lang="fa">به وبلاگ من خوش آمدید</h1>
 		<br />
-		<h3>در وبلاگ شخصی همه چیز از جمله ترفند هایی که یاد گرفتم، مطالب علمی و اتفاقات جالب رو با شما به اشتراک میذارم ... امیدوارم لذت ببرید!</h3>
+		<h3 lang="fa">در وبلاگ شخصی همه چیز از جمله ترفند هایی که یاد گرفتم، مطالب علمی و اتفاقات جالب رو با شما به اشتراک میذارم ... امیدوارم لذت ببرید!</h3>
 	</header>
 	<section id="cd-timeline" class="cd-container">
-	       	<ul id="nav">
+
+        {% block content %}
+        {% endblock %}
+        	<ul id="nav">
 				<li><a href="{{ url_for('about') }}"><i class="fa fa-user"></i></a></li>
 				<li><a href="{{ url_for('projects') }}"><i class="fa fa-rocket"></i></a></li>
 				<li><a href="{{ url_for('vlog') }}"><i class="fa fa-video-camera"></i></a></li>
 				<li><a href="{{ url_for('blog') }}"><i class="fa fa-pencil"></i></a></li>
 			</ul>
-        {% block content %}
-        {% endblock %}
 {#		<div class="cd-timeline-block">#}
 {#			<div class="cd-timeline-img cd-picture">#}
 {#				<img src="img/cd-icon-picture.svg" alt="Picture">#}
@@ -112,6 +119,7 @@
 			$("#nav").ferroMenu({
 				position 	: "right-bottom",
 				delay 		: 50,
+				drag		: false,
 			});
 		});
 	</script>

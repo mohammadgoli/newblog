@@ -8,13 +8,13 @@
 			</div> <!-- cd-timeline-img -->
 
 			<div class="cd-timeline-content">
-				<h2>تست ۱</h2>
+				<h2>{{ post.header|safe }}</h2>
 				<p>{{ post.digest|safe }}</p>
-				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more"> ادامه متن </a>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more" lang="fa"> ادامه متن </a>
                 {% if 'logged_in' in session %}
-                    <a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more"> پاک کردن</a>
+                    <a href="{{ url_for('deleteposts', postid = post.postid ) }}" class="cd-read-more" lang="fa"> پاک کردن</a>
                 {% endif %}
-				<span class="cd-date">{{ post.date }}</span>
+				<span class="cd-date" lang="fa">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
     {% endif %}
@@ -25,10 +25,10 @@
 			</div> <!-- cd-timeline-img -->
 
 			<div class="cd-timeline-content">
-				<h2>Title of section 2</h2>
+				<h2>{{ post.header|safe }}</h2>
 				<p>{{ post.digest|safe }}</p>
-				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more">مشاهده ویدیو</a>
-				<span class="cd-date">{{ post.date }}</span>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more" lang="fa">مشاهده ویدیو</a>
+				<span class="cd-date" lang="fa">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
     {% endif %}
@@ -39,10 +39,10 @@
 			</div> <!-- cd-timeline-img -->
 
 			<div class="cd-timeline-content">
-				<h2>Title of section 2</h2>
-				<p>{{ post.digest|safe }}</p>
-				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more">Read more</a>
-				<span class="cd-date">{{ post.date }}</span>
+				<h2>{{ post.header|safe }}/h2>
+				<p lang="fa">{{ post.digest|safe }}</p>
+				<a href="{{ url_for('viewpost', post_number = post.postid ) }}" class="cd-read-more" lang="fa">Read more</a>
+				<span class="cd-date" lang="fa">{{ post.date }}</span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->
     {% endif %}

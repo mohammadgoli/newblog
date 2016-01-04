@@ -4,10 +4,10 @@
 	<a id="onevideo" href="{{ url_for('view_video', video_number=video.video_id)}}">
 		<div id="img"><img src={{video.thumbnail}} id="thumbnail" /></div>
 		<div id="title" dir="rtl">
-			<h3>
+			<h3 id="videoname" lang="fa">
 				{{video.name}} 
 			</h3>
-			<p>
+			<p lang="fa">
 				{{video.digest}}
 			</p>
 		</div>

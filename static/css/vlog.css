@@ -129,3 +129,23 @@ video {
 @media all and (max-width: 750px){
 	#onevideo{ width: 100%; }
 }
+
+
+*:lang(fa){
+  font-family: 'sample', tahoma, Arial;
+  font-size: 1em;
+}
+
+
+a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+a:visited, a:active, a:link{
+	text-decoration: none;
+}
+
+a:link {
+	color: black;
+}

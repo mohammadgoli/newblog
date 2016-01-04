@@ -233,3 +233,8 @@ iframe {
 @media all and (min-width: 1100){
 	iframe{height: 95vh;}
 }
+
+*:lang(fa){
+	font-family: 'sample', tahoma, Arial;
+	font-size: 1em;
+}
